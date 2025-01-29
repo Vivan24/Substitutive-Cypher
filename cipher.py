@@ -16,7 +16,6 @@ def translate(from_letters, to_letters, text):
 
     # Check that parameters meet assumptions. The only assumption not
     # tested is that each character in from_letters should occur once.
-    # Students should not change this code.  It is here to catch mistakes.
     if not(from_letters.isupper() and from_letters.isalpha() and 
            to_letters.isupper() and to_letters.isalpha()):
         raise ValueError("from_letters and to_letters must be all uppercase letters")
@@ -24,20 +23,18 @@ def translate(from_letters, to_letters, text):
         raise ValueError("from_letters and to_letters must be the same length")
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    # Students should add their code below for the translate function
+    
+    # code below is the translate function logic
 
     txt = list(text)
     output = ""
 
     for i in range(len(txt)):
         for j in range(len(from_letters)):
-            if str(txt[i]).isalpha():
-                if str(text[i]).isupper() and str(text[i]) == from_letters[j].upper():
-                    txt[i] = to_letters[j].upper()
-                elif str(text[i]).islower() and str(text[i]) == from_letters[j].lower():
-                    txt[i] = to_letters[j].lower()
+            if txt[i] == from_letters[j]:
+                txt[i] = to_letters[j]
 
-        output += txt[i]
+        output += str(txt[i])
 
     return output
 
