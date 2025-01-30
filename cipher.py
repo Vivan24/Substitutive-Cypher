@@ -26,15 +26,12 @@ def translate(from_letters, to_letters, text):
     
     # code below is the translate function logic
 
-    txt = list(text)
     output = ""
 
-    for i in range(len(txt)):
+    for i in range(len(text)):
         for j in range(len(from_letters)):
-            if txt[i] == from_letters[j]:
-                txt[i] = to_letters[j]
-
-        output += str(txt[i])
+            if text[i] == from_letters[j]:
+                output += str(to_letters[j])
 
     return output
 
