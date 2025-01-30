@@ -1,2 +1,4 @@
-ABCD
-OWEI
+key.txt
+encrypt
+input.txt
+output.txt

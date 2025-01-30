@@ -43,20 +43,24 @@ def translate(from_letters, to_letters, text):
 
 def main():
 
-    input = open("input.txt")
-    parameters = open("commands.txt")
-    cmds = []
+    with open("commands.txt", "r") as f:
+        file_key = f.readline().strip()
+        job_type = f.readline().strip()
+        file_input = f.readline().strip()
+        file_output = f.readline().strip()
 
-    for line in parameters:
-        cmds.append(line)
+    with open(file_input, "r") as f:
+        input = f.readline().strip()
 
-    decrpyt = open("output.txt", "a")
-    decrpyt.write(translate(input.readline(), cmds[0], cmds[1]))
+    with open(file_key, "r") as f:
+        key = f.readline().strip()
+        alphabet = f.readline().strip()
 
-    input.close()
-    parameters.close()
-    decrpyt.close()
-
+    with open(file_output, "w") as f:
+        if job_type == "encrypt":
+            f.write(translate(key, alphabet, input))
+        else:
+            f.write(translate(alphabet, key, input))
 
 if __name__ == "__main__":
     main()
