@@ -29,9 +29,15 @@ def translate(from_letters, to_letters, text):
     output = ""
 
     for i in range(len(text)):
-        for j in range(len(from_letters)):
-            if text[i] == from_letters[j]:
-                output += str(to_letters[j])
+        if not text[i].isalpha():
+            output += text[i]
+        else:
+            for j in range(len(from_letters)):
+                if text[i].upper() == from_letters[j]:
+                    if text[i].isupper():
+                        output += to_letters[j]
+                    else:
+                        output += to_letters[j].lower()
 
     return output
 
