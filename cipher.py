@@ -29,9 +29,10 @@ def translate(from_letters, to_letters, text):
     output = ""
 
     for i in range(len(text)):
-        if not text[i].isalpha():
+        if not text[i].isalpha(): # ignores non-letters
             output += text[i]
         else:
+            # substitutes letters and preserves case
             for j in range(len(from_letters)):
                 if text[i].upper() == from_letters[j]:
                     if text[i].isupper():
@@ -43,20 +44,25 @@ def translate(from_letters, to_letters, text):
 
 def main():
 
+    # gets initial details
     with open("commands.txt", "r") as f:
         file_key = f.readline().strip()
         job_type = f.readline().strip()
         file_input = f.readline().strip()
         file_output = f.readline().strip()
 
+    # gets input text
     with open(file_input, "r") as f:
         input = f.readline().strip()
 
+    # gets key for encrypting
     with open(file_key, "r") as f:
         key = f.readline().strip()
         alphabet = f.readline().strip()
 
+    # writes to output file with translate function
     with open(file_output, "w") as f:
+        # choses depending on job type
         if job_type == "encrypt":
             f.write(translate(key, alphabet, input))
         else:

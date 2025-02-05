@@ -4,9 +4,9 @@ import pytest
 def test_translate_arguments():
     """
     This test the checks catching arugment errors. 
-    Students can ignore this test. If this test fails,
-    it means that students have deleted some provided
-    code from translate and should put it back.
+    You can ignore this test. If this test fails,
+    it means that some provided code has been
+    deleted from translate and should be put back.
     """
     with pytest.raises(ValueError):
         translate("abc","BCA","bbb") # from_letter is not all upper
@@ -25,10 +25,8 @@ def test_translate_arguments():
 def test_translate_one_letter():
     assert translate("A","B","A") == "B"
 
-
 def test_translate_multiple_letters():
     assert translate("ABC","BCA","ABCAAB") == "BCABBC"
-
 
 def test_translate_as_cipher():
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
